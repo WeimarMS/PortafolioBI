@@ -64,7 +64,6 @@
     .btn { display: inline-block; padding: 10px 20px; background: var(--clr-highlight); color: var(--clr-bg); text-decoration: none; border-radius: 5px; font-weight: 500; transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); background: var(--clr-warm-accent); }
 
-    /* --- INICIO CÓDIGO MODIFICADO --- */
     .btn-ghost {
       display: block;
       width: fit-content;
@@ -85,15 +84,149 @@
       background: var(--clr-bg);
       color: var(--clr-text);
     }
-    /* --- FIN CÓDIGO MODIFICADO --- */
 
     section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
     h2 { font-family: 'Oswald', sans-serif; font-size: 2.5rem; text-align: center; margin-bottom: 40px; color: var(--clr-text); line-height: 1.2; }
-    .about, .skills, .projects, .testimonials, .contact, .experience { background: #fff; border-radius: 10px; padding: 40px; margin: 20px auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05); animation: slideUp 1s ease-in-out; }
+    .about, .skills, .projects, .testimonials, .contact, .experience, .education { background: #fff; border-radius: 10px; padding: 40px; margin: 20px auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05); animation: slideUp 1s ease-in-out; }
     .about-container { display: flex; align-items: center; gap: 40px; }
     .about-image img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; }
     .about-text { flex: 1; }
     .about-text p { text-align: justify; }
+
+    /* --- ESTILOS EDUCACIÓN --- */
+    .education-table { 
+      width: 100%; 
+      border-collapse: separate; 
+      border-spacing: 0 20px; 
+    }
+    .education-table tr { 
+      background: var(--clr-bg); 
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    .education-table tr:hover { transform: translateX(5px); }
+    .logo-cell { 
+      padding: 15px; 
+      text-align: center; 
+      border-top-left-radius: 10px; 
+      border-bottom-left-radius: 10px; 
+      border-left: 5px solid var(--clr-cold-accent);
+      width: 20%; 
+    }
+    .info-cell { 
+      padding: 15px; 
+      border-top-right-radius: 10px; 
+      border-bottom-right-radius: 10px; 
+    }
+    .education-logo { 
+      width: auto;           
+      height: auto;          
+      max-width: 200px;      
+      max-height: 120px;     
+      object-fit: contain;   
+    }
+    .logo-wrapper { 
+      display: flex; 
+      justify-content: center; 
+      gap: 15px; 
+    }
+    .education-info h3 { 
+      font-family: 'Oswald', sans-serif; 
+      font-size: 1.5rem; 
+      color: var(--clr-text); 
+      margin-bottom: 3px; 
+      line-height: 1.2; 
+    }
+    .education-info .institution { 
+      font-weight: 500; 
+      color: var(--clr-cold-accent); 
+      margin-bottom: 3px; 
+      font-size: 1rem; 
+      text-align: justify; 
+    }
+    .edu-details { 
+      list-style: none; 
+      padding-left: 0; 
+      margin-top: 5px; 
+    }
+    .edu-details li { 
+      font-size: 0.9rem; 
+      position: relative; 
+      padding-left: 15px; 
+      margin-bottom: 2px; 
+      color: #555; 
+      text-align: justify; 
+    }
+    .edu-details li::before { 
+      content: '•'; 
+      color: var(--warm-accent); 
+      position: absolute; 
+      left: 0; 
+      top: 0; 
+    }
+    .mobile-only-content { display: none; }
+
+    @media (max-width: 768px) {
+      .mobile-only-content { display: block; }
+      .desktop-only-content { display: none; }
+      .education-table tr { 
+        display: flex; 
+        flex-direction: column; 
+        margin-bottom: 25px; 
+        background: #fff;
+        border: 1px solid #e0e0e0; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      }
+      .logo-cell { 
+        width: 100%; 
+        border-radius: 10px 10px 0 0; 
+        border-left: none; 
+        border-top: 5px solid var(--clr-cold-accent);
+        border-bottom: 1px solid #f0f0f0; 
+        padding: 20px 10px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .education-logo {
+        width: auto;
+        max-width: 80%;
+        height: auto;       
+        max-height: 80px;   
+        margin-bottom: 0;
+      }
+      .logo-wrapper {
+        flex-direction: column;
+        gap: 10px;               
+        align-items: center;
+        justify-content: center;
+      }
+      .info-cell { 
+        border-radius: 0 0 10px 10px; 
+        padding: 20px 25px; 
+        text-align: center; 
+      }
+      .education-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: var(--clr-text);
+      }
+      .education-info .institution { 
+        display: none; 
+      }
+      .edu-details {
+          text-align: left; 
+          margin-top: 10px;
+      }
+      .edu-details li { 
+        text-align: left; 
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+    }
+    /* --- FIN ESTILOS EDUCACIÓN --- */
+
     .skills-grid { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
     .skill-item { display: flex; flex-direction: column; align-items: center; min-width: 150px; }
     .skill-item img { max-height: 90px; width: auto; object-fit: contain; margin-bottom: 10px; }
@@ -209,6 +342,7 @@
           <li><a href="#about" data-translate="nav.about"></a></li>
           <li><a href="#skills" data-translate="nav.skills"></a></li>
           <li><a href="#projects" data-translate="nav.projects"></a></li>
+          <li><a href="#education" data-translate="nav.education"></a></li>
           <li><a href="#testimonials" data-translate="nav.testimonials"></a></li>
           <li><a href="#experience" data-translate="nav.experience"></a></li>
           <li><a href="#contact" data-translate="nav.contact"></a></li>
@@ -328,6 +462,67 @@
       </div>
     </section>
 
+    <section id="education" class="education">
+      <h2 data-translate="section.education"></h2>
+      <table class="education-table">
+        <tr>
+          <td class="logo-cell">
+            <img src="assets/images/UB.png" alt="UB Logo" class="education-logo" onerror="this.onerror=null;this.src='https://placehold.co/50x50/FFFFFF/000000?text=UB';">
+          </td>
+          <td class="info-cell">
+            <div class="education-info">
+              <h3 data-translate="edu.ub.title"></h3>
+              <p class="institution" data-translate="edu.ub.inst"></p>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="logo-cell">
+            <div class="logo-wrapper">
+              <img src="assets/images/CATO.png" alt="UCB Logo" class="education-logo" onerror="this.onerror=null;this.src='https://placehold.co/50x50/FFFFFF/000000?text=UCB';">
+              <img src="assets/images/UPV.png" alt="UPV Logo" class="education-logo" onerror="this.onerror=null;this.src='https://placehold.co/50x50/FFFFFF/000000?text=UPV';">
+            </div>
+          </td>
+          <td class="info-cell">
+            <div class="education-info">
+              <h3 data-translate="edu.upv.title"></h3>
+              <p class="institution" data-translate="edu.upv.inst"></p>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="logo-cell">
+            <img src="assets/images/CATO.png" alt="UCB Logo" class="education-logo" onerror="this.onerror=null;this.src='https://placehold.co/50x50/FFFFFF/000000?text=UCB';">
+          </td>
+          <td class="info-cell">
+            <div class="education-info">
+              <h3 data-translate="edu.ucb.title"></h3>
+              <p class="institution" data-translate="edu.ucb.inst"></p>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="logo-cell">
+            <img src="assets/images/Kaplan.png" alt="Kaplan Logo" class="education-logo" onerror="this.onerror=null;this.src='https://placehold.co/50x50/FFFFFF/000000?text=Kaplan';">
+          </td>
+          <td class="info-cell">
+            <div class="education-info">
+              <h3 data-translate="edu.kaplan.title"></h3>
+              <p class="institution" data-translate="edu.kaplan.inst"></p>
+              <ul class="edu-details">
+                <li class="desktop-only-content" data-translate="edu.kaplan.det1"></li>
+                <li class="mobile-only-content" data-translate="edu.kaplan.det1.mobile"></li>
+                
+                <li data-translate="edu.kaplan.det2"></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </section>
     <section id="testimonials" class="testimonials">
       <h2 data-translate="section.testimonials"></h2>
       <div class="testimonials-grid">
@@ -523,11 +718,23 @@
 
       const translations = {
         en: {
-            'nav.home': 'Home', 'nav.about': 'About Me', 'nav.skills': 'Skills', 'nav.projects': 'Projects', 'nav.testimonials': 'Testimonials', 'nav.experience': 'Experience', 'nav.contact': 'Contact',
+            'nav.home': 'Home', 'nav.about': 'About Me', 'nav.skills': 'Skills', 'nav.projects': 'Projects', 'nav.education': 'Education', 'nav.testimonials': 'Testimonials', 'nav.experience': 'Experience', 'nav.contact': 'Contact',
             'hero.title': 'Data Analyst', 'hero.description': 'I transform data into strategic decisions with innovative solutions.', 'hero.button': 'Contact Me',
             'section.about': 'About Me', 'about.text': 'I’m Weimar Miranda, an Industrial Engineer with a Master’s in Business Intelligence (University of Barcelona, 2022) and over 9 years of experience in data analysis, planning, and oversight in Bolivia’s energy sector. I’ve designed models to measure the profitability and performance of investment portfolios, along with reporting systems and executive dashboards using tools like Power BI. I also complement this analysis by building my own solutions —automations, web applications, and databases— to turn findings into functional systems. My approach is fully transferable across industries, and my goal is to identify each organization’s critical pain points and turn them into solutions with measurable impact. I’m also fluent in English at a C1 level (Kaplan, New York, 2024).',
             'section.skills': 'Skills',
             'section.projects': 'Projects',
+            'section.education': 'Education',
+            'edu.kaplan.title': 'Intensive English Program (Advanced Level C1)',
+            'edu.kaplan.inst': 'Kaplan International Languages | New York, USA',
+            'edu.kaplan.det1': 'In-person Modality: Full immersion in a native environment.',
+            'edu.kaplan.det1.mobile': 'In-person Modality in New York, USA: Full immersion in a native environment.',
+            'edu.kaplan.det2': 'Development of conversational fluency for negotiation and technical management.',
+            'edu.ub.title': 'MBI - Master in Business Intelligence',
+            'edu.ub.inst': 'University of Barcelona',
+            'edu.upv.title': 'Specialization in Environmental and Industrial Process Simulation',
+            'edu.upv.inst': 'Bolivian Catholic University “San Pablo” | Polytechnic University of Valencia',
+            'edu.ucb.title': 'Industrial Engineering',
+            'edu.ucb.inst': 'Bolivian Catholic University “San Pablo”',
             'section.projects.note': 'For the best experience, it is recommended to view the dashboards on a computer or on a mobile device in landscape orientation.',
             'project.inversion.title': 'GNV Programs Analysis in Bolivia', 'project.inversion.description': 'Comprehensive dashboard developed in Power BI for monitoring and controlling the three Natural Gas Vehicle investment programs in Bolivia: Conversion, Maintenance, and Requalification. The tool centralizes and visualizes key KPIs such as goal progress vs. execution and performance by sector. It allows for detailed geographical analysis by department and workshop, facilitating trend identification and optimizing resource allocation nationwide.',
             'project.seattle.title': 'Seattle 911 Fire Department Incident Report', 'project.seattle.description': 'This Power BI dashboard analyzes over 2 million Seattle 911 fire emergency calls, uncovering trends in frequency, timing, and geographic distribution. Featuring performance comparisons, Azure Maps for district-level insights, and a Python-integrated SARIMA model for forecasting, it empowers data-driven operational and strategic planning.',
@@ -553,29 +760,41 @@
             'footer.text': '© 2025 - BI Portfolio. All rights reserved.',
         },
         es: {
-            'nav.home': 'Inicio', 'nav.about': 'Sobre Mí', 'nav.skills': 'Habilidades', 'nav.projects': 'Proyectos', 'nav.testimonials': 'Testimonios', 'nav.experience': 'Experiencia', 'nav.contact': 'Contacto',
+            'nav.home': 'Inicio', 'nav.about': 'Sobre Mí', 'nav.skills': 'Habilidades', 'nav.projects': 'Proyectos', 'nav.education': 'Educación', 'nav.testimonials': 'Testimonios', 'nav.experience': 'Experiencia', 'nav.contact': 'Contacto',
             'hero.title': 'Analista de Datos', 'hero.description': 'Transformo datos en decisiones estratégicas con soluciones innovadoras.', 'hero.button': 'Contáctame',
             'section.about': 'Sobre Mí', 'about.text': 'Soy Weimar Miranda, Ingeniero Industrial con Máster en Business Intelligence (Universidad de Barcelona, 2022) y más de 9 años de experiencia en análisis de datos, planificación y fiscalización en el sector energético boliviano. He diseñado modelos para medir rentabilidad y desempeño de carteras de inversión, además de sistemas de reporting y dashboards ejecutivos con herramientas como Power BI. También complemento el análisis con desarrollo de soluciones propias —automatizaciones, aplicaciones web y bases de datos— para llevar los hallazgos a sistemas funcionales. Mi enfoque es completamente transferible a cualquier industria, y mi objetivo es identificar los puntos críticos de cada organización y convertirlos en soluciones con impacto medible. Cuento además con nivel C1 de inglés (Kaplan, Nueva York, 2024).',
             'section.skills': 'Habilidades',
             'section.projects': 'Proyectos',
+            'section.education': 'Formación Académica',
+            'edu.kaplan.title': 'Programa Intensivo de Inglés (Nivel Avanzado C1)',
+            'edu.kaplan.inst': 'Kaplan International Languages | Nueva York, EE. UU.',
+            'edu.kaplan.det1': 'Modalidad Presencial: Inmersión total en entorno nativo.',
+            'edu.kaplan.det1.mobile': 'Modalidad Presencial en Nueva York, EE. UU.: Inmersión total en entorno nativo.',
+            'edu.kaplan.det2': 'Desarrollo de fluidez conversacional para negociación y gestión técnica.',
+            'edu.ub.title': 'MBI - Master en Business Intelligence',
+            'edu.ub.inst': 'Universidad de Barcelona',
+            'edu.upv.title': 'Especialidad en Simulación de Procesos Ambientales e Industriales',
+            'edu.upv.inst': 'Universidad Católica Boliviana “San Pablo” | Universidad Politécnica de Valencia',
+            'edu.ucb.title': 'Ingeniería Industrial',
+            'edu.ucb.inst': 'Universidad Católica Boliviana “San Pablo”',
             'section.projects.note': 'Para una mejor experiencia, se recomienda visualizar los dashboards en una computadora o en un dispositivo móvil en orientación horizontal.',
             'project.inversion.title': 'Análisis de Programas de GNV en Bolivia', 'project.inversion.description': 'Dashboard integral desarrollado en Power BI para el seguimiento y control de los tres programas de inversión de Gas Natural Vehicular en Bolivia: Conversión, Mantenimiento y Recalificación. La herramienta centraliza y visualiza KPIs clave como el avance de metas vs. ejecución y rendimiento por sector. Permite un análisis geográfico detallado por departamento y taller, facilitando la identificación de tendencias y optimizando la asignación de recursos a nivel nacional.',
             'project.seattle.title': 'Informe de Incidentes del Departamento de Bomberos 911 de Seattle', 'project.seattle.description': 'Este panel de Power BI analiza más de 2 millones de llamadas de emergencia 911 de bomberos en Seattle, identificando tendencias en frecuencia, horarios y distribución geográfica. Incluye comparaciones de rendimiento, Azure Maps para información a nivel de distrito y un modelo SARIMA integrado en Python para pronósticos, lo que permite una planificación operativa y estratégica basada en datos.',
             'project.cta': 'Haz clic en la imagen para ver el dashboard interactivo.',
             'project.cta.crm': 'Haz clic para explorar el CRM.',
             'project.rapidash.title': 'RapiDash CRM – Plataforma de Distribución Farmacéutica', 'project.rapidash.description': 'CRM full-stack desarrollado para RapiDash S.R.L., una empresa ficticia de distribución farmacéutica de última milla en Santa Cruz de la Sierra, Bolivia. La plataforma gestiona pedidos, clientes, rutas de entrega y repartidores por zona, con control de acceso por roles (admin, supervisor de zona, repartidor, cliente) y seguridad a nivel de fila (RLS) en cada tabla. Desplegado en producción con CI/CD automatizado desde GitHub.',
-            'section.testimonials': 'Testimonios', 'testimonial.leonardo.text': 'Excelente servicio y flexible a hacer los ajustes que sean necesarios. Recomendado.', 'testimonial.leonardo.author': 'Leonardo',
+            'section.testimonials': 'Testimonials', 'testimonial.leonardo.text': 'Excelente servicio y flexible a hacer los ajustes que sean necesarios. Recomendado.', 'testimonial.leonardo.author': 'Leonardo',
             'section.experience': 'Mi Trayectoria Profesional',
             'experience.company': 'Entidad Ejecutora de Conversión a Gas Natural Vehicular',
             'experience.role1.title': 'Consultor / Freelance de Análisis de Datos', 'experience.role1.company': 'Independiente', 'experience.role1.date': 'Feb 2025 - Actualidad', 'experience.role1.resp1': 'Proporcionando servicios de consultoría de análisis de datos e inteligencia de negocios a diversos clientes, desarrollando paneles personalizados y optimizando flujos de trabajo.',
             'experience.role2.title': 'Profesional de Planificación de Proyectos', 'experience.role2.date': 'Abr 2023 - Abr 2024', 'experience.role2.resp1': 'Lideré la implementación de Power BI como herramienta central para monitorear en tiempo real los programas de inversión. Desarrollé dashboards automatizados que integraron diversas fuentes de datos, mejorando la toma de decisiones estratégicas y la rendición de cuentas a nivel ministerial.',
             'experience.role3.title': 'Encargado Nacional de Fiscalización y Seguimiento Técnico', 'experience.role3.date': 'Ene 2022 - Mar 2023', 'experience.role3.resp1': 'Elaboré especificaciones técnicas para la adopción de nuevas tecnologías de conversión a GNV. Además, implementé dashboards en Power BI para el análisis de tendencias y seguimiento de datos técnicos, optimizando la eficiencia operativa del área.',
             'experience.role4.title': 'Profesional de Fiscalización y Seguimiento Técnico', 'experience.role4.date': 'Ago 2021 - Dic 2021', 'experience.role4.resp1': 'Redacté y fundamenté el procedimiento técnico para la determinación de costos de conversión a GNV, logrando su aprobación mediante Resolución Ministerial. Esta normativa reemplazó el marco anterior, adaptándolo a nuevas tecnologías y estructuras de costos.',
-            'experience.role5.title': 'Profesional de Normalización Técnica', 'experience.role5.date': 'Mar 2021 - Jul 2021', 'experience.role5.resp1': 'Desarrollé la metodología y justificación técnica para actualizar la normativa de costos fijos, demostrando la necesidad de un nuevo marco regulatorio para garantizar la sostenibilidad del programa de conversión.',
+            'experience.role5.title': 'Profesional de Normalización Técnico', 'experience.role5.date': 'Mar 2021 - Jul 2021', 'experience.role5.resp1': 'Desarrollé la metodología y justificación técnica para actualizar la normativa de costos fijos, demostrando la necesidad de un nuevo marco regulatorio para garantizar la sostenibilidad del programa de conversión.',
             'experience.role6.title': 'Profesional de Control y Seguimiento en Gestión de Programas', 'experience.role6.date': 'Ene 2018 - Sep 2019', 'experience.role6.resp1': 'Supervisé la ejecución física y financiera de los programas de inversión. Automaticé el seguimiento de presupuestos y la generación de informes mediante herramientas en Excel y macros VBA, mejorando la eficiencia y trazabilidad.',
             'experience.role7.title': 'Encargado Nacional de Almacenes y Gestión Operativa', 'experience.role7.date': 'Ene 2017 - Dic 2017', 'experience.role7.resp1': 'Co-diseñé e implementé el primer sistema nacional de gestión de inventarios en SQL. Adicionalmente, coadyuvé en la elaboración de la propuesta del Decreto Supremo N.º 3389, que autorizó el incremento de la partida para consultores y estableció mecanismos de verificación para el uso de equipos de conversión a GNV.',
             'experience.role8.title': 'Encargado Nacional de Almacenes de Equipos de Conversión a GNV', 'experience.role8.date': 'Ene 2016 - Dic 2016', 'experience.role8.resp1': 'Gestioné la logística y supervisé el inventario a nivel nacional, utilizando Excel avanzado para asegurar la trazabilidad del stock en más de 7 oficinas regionales.',
-            'experience.role9.title': 'Profesional de Planificación', 'experience.role9.date': 'Dic 2015', 'experience.role9.resp1': 'Automaticé la generación de certificaciones presupuestarias mediante macros en VBA, reduciendo errores y mejorando los tiempos de respuesta.',
+            'experience.role9.title': 'Profesional de Planificación', 'experience.role9.date': 'Dic 2015', 'experience.role9.resp1': 'Automated la generación de certificaciones presupuestarias mediante macros en VBA, reduciendo errores y mejorando los tiempos de respuesta.',
             'experience.role10.title': 'Consultor - Unidad Operativa', 'experience.role10.date': 'Sep 2015 - Nov 2015', 'experience.role10.resp1': 'Analicé datos operativos con Excel y VBA para identificar cuellos de botella y proponer mejoras en los procesos de conversión.',
             'experience.role11.title': 'Coordinador Regional en Tarija', 'experience.role11.date': 'Mayo 2014 - Jun 2015', 'experience.role11.resp1': 'Coordiné los programas regionales de mantenimiento y recalificación, utilizando Excel y VBA para sistematizar el control operativo y reportar a la sede nacional.',
             'experience.toggle': 'Mostrar Detalles', 'experience.toggle.hide': 'Ocultar Detalles', 'experience.toggleAll': 'Colapsar', 'experience.toggleAll.expand': 'Expandir Todo',
