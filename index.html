@@ -116,13 +116,14 @@
     .testimonial-card .author { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--clr-cold-accent); }
     .testimonial-card .platform-logo { width: 100px; height: 40px; object-fit: contain; }
     .stars { color: var(--clr-gold); font-size: 1rem; }
-    #toggle-experience-footer { display: flex; align-items: center; justify-content: center; gap: 8px; width: fit-content; margin: 40px auto 0 auto; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 0.9rem; color: var(--clr-text); border: 1px solid var(--clr-text); transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
-    #toggle-experience-footer:hover { background-color: var(--clr-cold-accent); color: var(--clr-bg); border-color: var(--clr-cold-accent); }
-    #toggle-experience-footer .arrow-icon { display: inline-block; transition: transform 0.3s ease; }
+    .toggle-experience-footer { display: flex; align-items: center; justify-content: center; gap: 8px; width: fit-content; margin: 40px auto 0 auto; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 0.9rem; color: var(--clr-text); border: 1px solid var(--clr-text); transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+    .toggle-experience-footer:hover { background-color: var(--clr-cold-accent); color: var(--clr-bg); border-color: var(--clr-cold-accent); }
+    .toggle-experience-footer .arrow-icon { display: inline-block; transition: transform 0.3s ease; }
     #toggle-experience-footer.expanded .arrow-icon { transform: rotate(180deg); }
     .timeline-container { position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0; max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.8s ease-in-out, opacity 0.8s ease-in-out; }
     .timeline-container.expanded { max-height: 10000px; opacity: 1; }
-    .timeline-container::after { content: ''; position: absolute; width: 4px; background: var(--clr-cold-accent); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
+    .timeline-track { position: relative; }
+    .timeline-track::after { content: ''; position: absolute; width: 4px; background: var(--clr-cold-accent); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
     .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; margin-bottom: 30px; }
     .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: var(--clr-highlight); border: 3px solid #fff; top: 15px; border-radius: 50%; z-index: 1; }
     .timeline-item.left { left: 0; }
@@ -187,7 +188,7 @@
       .about-container { flex-direction: column; text-align: center; }
       .project-card { flex-direction: column; align-items: center; }
       .project-link { flex: 0 0 auto; width: 100%; }
-      .timeline-container::after { left: 31px; }
+      .timeline-track::after { left: 31px; }
       .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
       .timeline-item.right { left: 0%; }
       .timeline-item::after, .timeline-item.right::after { left: 15px; }
@@ -254,20 +255,28 @@
           <span>Power BI</span>
         </div>
         <div class="skill-item">
-          <img src="assets/images/looker.png" alt="Looker Studio logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=LS';">
-          <span>Looker Studio</span>
+          <img src="assets/images/claudecode.png" alt="Claude Code logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=Claude';">
+          <span>Claude Code</span>
+        </div>
+        <div class="skill-item">
+          <img src="assets/images/excelicon.png" alt="Excel Advanced logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=XLS';">
+          <span>Advanced Excel</span>
+        </div>
+        <div class="skill-item">
+          <img src="assets/images/n8n.png" alt="n8n logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=n8n';">
+          <span>n8n</span>
         </div>
         <div class="skill-item">
           <img src="assets/images/logomysql.png" alt="MySQL logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=SQL';">
           <span>SQL</span>
         </div>
         <div class="skill-item">
-          <img src="assets/images/python.png" alt="Python logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=Py';">
-          <span>Python</span>
+          <img src="assets/images/looker.png" alt="Looker Studio logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=LS';">
+          <span>Looker Studio</span>
         </div>
         <div class="skill-item">
-          <img src="assets/images/excelicon.png" alt="Excel Advanced logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=XLS';">
-          <span>Advanced Excel</span>
+          <img src="assets/images/python.png" alt="Python logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=Py';">
+          <span>Python</span>
         </div>
       </div>
     </section>
@@ -277,14 +286,21 @@
       <p class="project-view-note" data-translate="section.projects.note"></p>
       <div class="projects-grid">
         <div class="project-card">
-          <a href="https://app.powerbi.com/view?r=eyJrIjoiZDk4NmM2M2YtNzYyNi00YTgxLWI1ZmMtMzhkNDQxZjZjNWI5IiwidCI6ImJhODQzY2Q3LWNiN2MtNGJiMS1hZWE3LTEzY2NhOGZlYzRjOSIsImMiOjR9" target="_blank" rel="noopener noreferrer" class="project-link">
-            <img src="assets/images/INV.gif" alt="Investment Programs Analysis Demo" class="project-gif">
+          <a href="https://rapidash-crm.netlify.app" target="_blank" rel="noopener noreferrer" class="project-link">
+            <img src="assets/images/rapidash.png" alt="RapiDash CRM Demo" class="project-gif" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2A9D8F/FFFFFF?text=RapiDash';">
           </a>
           <div class="project-content">
-            <div class="project-tools"><span class="tool-badge">Power BI</span></div>
-            <h3 data-translate="project.inversion.title"></h3>
-            <p data-translate="project.inversion.description"></p>
-            <p class="project-cta" data-translate="project.cta"></p>
+            <div class="project-tools">
+              <span class="tool-badge">React</span>
+              <span class="tool-badge">TypeScript</span>
+              <span class="tool-badge">Tailwind CSS</span>
+              <span class="tool-badge">Supabase</span>
+              <span class="tool-badge">Netlify</span>
+              <span class="tool-badge">Claude Code</span>
+            </div>
+            <h3 data-translate="project.rapidash.title"></h3>
+            <p data-translate="project.rapidash.description"></p>
+            <p class="project-cta" data-translate="project.cta.crm"></p>
           </div>
         </div>
         <div class="project-card">
@@ -295,6 +311,17 @@
             <div class="project-tools"><span class="tool-badge">Power BI</span><span class="tool-badge">Python</span></div>
             <h3 data-translate="project.seattle.title"></h3>
             <p data-translate="project.seattle.description"></p>
+            <p class="project-cta" data-translate="project.cta"></p>
+          </div>
+        </div>
+        <div class="project-card">
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiZDk4NmM2M2YtNzYyNi00YTgxLWI1ZmMtMzhkNDQxZjZjNWI5IiwidCI6ImJhODQzY2Q3LWNiN2MtNGJiMS1hZWE3LTEzY2NhOGZlYzRjOSIsImMiOjR9" target="_blank" rel="noopener noreferrer" class="project-link">
+            <img src="assets/images/INV.gif" alt="Investment Programs Analysis Demo" class="project-gif">
+          </a>
+          <div class="project-content">
+            <div class="project-tools"><span class="tool-badge">Power BI</span></div>
+            <h3 data-translate="project.inversion.title"></h3>
+            <p data-translate="project.inversion.description"></p>
             <p class="project-cta" data-translate="project.cta"></p>
           </div>
         </div>
@@ -316,7 +343,12 @@
 
     <section id="experience" class="experience">
       <h2 data-translate="section.experience"></h2>
+      <div id="toggle-experience-footer" class="toggle-experience-footer">
+        <span data-translate="experience.toggleAll.expand"></span>
+        <span class="arrow-icon">▼</span>
+      </div>
       <div class="timeline-container">
+        <div class="timeline-track">
         <div class="timeline-item left">
             <div class="timeline-content">
                 <h3 data-translate="experience.role1.title"></h3>
@@ -438,10 +470,11 @@
                 <button class="toggle-details-btn" data-translate="experience.toggle"></button>
             </div>
         </div>
-      </div>
-      <div id="toggle-experience-footer">
-        <span data-translate="experience.toggleAll.expand"></span>
-        <span class="arrow-icon">▼</span>
+        </div>
+        <div id="toggle-experience-footer-bottom" class="toggle-experience-footer">
+          <span data-translate="experience.toggleAll"></span>
+          <span class="arrow-icon">▲</span>
+        </div>
       </div>
     </section>
 
@@ -492,13 +525,15 @@
         en: {
             'nav.home': 'Home', 'nav.about': 'About Me', 'nav.skills': 'Skills', 'nav.projects': 'Projects', 'nav.testimonials': 'Testimonials', 'nav.experience': 'Experience', 'nav.contact': 'Contact',
             'hero.title': 'Data Analyst', 'hero.description': 'I transform data into strategic decisions with innovative solutions.', 'hero.button': 'Contact Me',
-            'section.about': 'About Me', 'about.text': 'I’m Weimar Miranda, an Industrial Engineer with a Master’s degree in Business Intelligence from the University of Barcelona. Over more than a decade of experience managing large-scale, high-impact investment programs, my career has evolved toward a specialization in Business Intelligence. For the last three years, I have implemented advanced solutions with Power BI that have resulted in a 20% improvement in operational efficiency. I leverage Python and MySQL to enrich data workflows and optimize reporting, complementing my core expertise in Business Intelligence. I have C1-level fluency in English (Kaplan, New York, 2024).',
+            'section.about': 'About Me', 'about.text': 'I’m Weimar Miranda, an Industrial Engineer with a Master’s in Business Intelligence (University of Barcelona, 2022) and over 9 years of experience in data analysis, planning, and oversight in Bolivia’s energy sector. I’ve designed models to measure the profitability and performance of investment portfolios, along with reporting systems and executive dashboards using tools like Power BI. I also complement this analysis by building my own solutions —automations, web applications, and databases— to turn findings into functional systems. My approach is fully transferable across industries, and my goal is to identify each organization’s critical pain points and turn them into solutions with measurable impact. I’m also fluent in English at a C1 level (Kaplan, New York, 2024).',
             'section.skills': 'Skills',
             'section.projects': 'Projects',
             'section.projects.note': 'For the best experience, it is recommended to view the dashboards on a computer or on a mobile device in landscape orientation.',
             'project.inversion.title': 'GNV Programs Analysis in Bolivia', 'project.inversion.description': 'Comprehensive dashboard developed in Power BI for monitoring and controlling the three Natural Gas Vehicle investment programs in Bolivia: Conversion, Maintenance, and Requalification. The tool centralizes and visualizes key KPIs such as goal progress vs. execution and performance by sector. It allows for detailed geographical analysis by department and workshop, facilitating trend identification and optimizing resource allocation nationwide.',
             'project.seattle.title': 'Seattle 911 Fire Department Incident Report', 'project.seattle.description': 'This Power BI dashboard analyzes over 2 million Seattle 911 fire emergency calls, uncovering trends in frequency, timing, and geographic distribution. Featuring performance comparisons, Azure Maps for district-level insights, and a Python-integrated SARIMA model for forecasting, it empowers data-driven operational and strategic planning.',
             'project.cta': 'Click on the image to view the interactive dashboard.',
+            'project.cta.crm': 'Click to explore the CRM.',
+            'project.rapidash.title': 'RapiDash CRM – Pharma Distribution Platform', 'project.rapidash.description': 'Full-stack CRM built for RapiDash S.R.L., a fictional last-mile pharmaceutical distribution company in Santa Cruz de la Sierra, Bolivia. The platform manages orders, clients, delivery routes, and drivers across multiple city zones, with role-based access control (admin, zone supervisor, driver, client) and row-level security enforced on every table. Deployed to production with automated CI/CD from GitHub.',
             'section.testimonials': 'Testimonials', 'testimonial.leonardo.text': 'Excellent service and flexible to make the necessary adjustments. Recommended.', 'testimonial.leonardo.author': 'Leonardo',
             'section.experience': 'My Professional Journey',
             'experience.company': 'Executive Entity for Natural Gas Vehicle Conversion',
@@ -520,13 +555,15 @@
         es: {
             'nav.home': 'Inicio', 'nav.about': 'Sobre Mí', 'nav.skills': 'Habilidades', 'nav.projects': 'Proyectos', 'nav.testimonials': 'Testimonios', 'nav.experience': 'Experiencia', 'nav.contact': 'Contacto',
             'hero.title': 'Analista de Datos', 'hero.description': 'Transformo datos en decisiones estratégicas con soluciones innovadoras.', 'hero.button': 'Contáctame',
-            'section.about': 'Sobre Mí', 'about.text': 'Soy Weimar Miranda, Ingeniero Industrial con un Máster en Inteligencia de Negocios de la Universidad de Barcelona. A lo largo de más de una década de experiencia gestionando programas de inversión a gran escala y de alto impacto, mi carrera ha evolucionado hacia la especialización en Business Intelligence. Durante los últimos tres años, he implementado soluciones avanzadas con Power BI que han resultado en una mejora del 20% en la eficiencia operativa. Utilizo Python y MySQL para enriquecer flujos de datos y optimizar informes, complementando mi experiencia principal en Inteligencia de Negocios. Poseo una fluidez en idioma inglés a nivel C1 (Kaplan, Nueva York, 2024).',
+            'section.about': 'Sobre Mí', 'about.text': 'Soy Weimar Miranda, Ingeniero Industrial con Máster en Business Intelligence (Universidad de Barcelona, 2022) y más de 9 años de experiencia en análisis de datos, planificación y fiscalización en el sector energético boliviano. He diseñado modelos para medir rentabilidad y desempeño de carteras de inversión, además de sistemas de reporting y dashboards ejecutivos con herramientas como Power BI. También complemento el análisis con desarrollo de soluciones propias —automatizaciones, aplicaciones web y bases de datos— para llevar los hallazgos a sistemas funcionales. Mi enfoque es completamente transferible a cualquier industria, y mi objetivo es identificar los puntos críticos de cada organización y convertirlos en soluciones con impacto medible. Cuento además con nivel C1 de inglés (Kaplan, Nueva York, 2024).',
             'section.skills': 'Habilidades',
             'section.projects': 'Proyectos',
             'section.projects.note': 'Para una mejor experiencia, se recomienda visualizar los dashboards en una computadora o en un dispositivo móvil en orientación horizontal.',
             'project.inversion.title': 'Análisis de Programas de GNV en Bolivia', 'project.inversion.description': 'Dashboard integral desarrollado en Power BI para el seguimiento y control de los tres programas de inversión de Gas Natural Vehicular en Bolivia: Conversión, Mantenimiento y Recalificación. La herramienta centraliza y visualiza KPIs clave como el avance de metas vs. ejecución y rendimiento por sector. Permite un análisis geográfico detallado por departamento y taller, facilitando la identificación de tendencias y optimizando la asignación de recursos a nivel nacional.',
             'project.seattle.title': 'Informe de Incidentes del Departamento de Bomberos 911 de Seattle', 'project.seattle.description': 'Este panel de Power BI analiza más de 2 millones de llamadas de emergencia 911 de bomberos en Seattle, identificando tendencias en frecuencia, horarios y distribución geográfica. Incluye comparaciones de rendimiento, Azure Maps para información a nivel de distrito y un modelo SARIMA integrado en Python para pronósticos, lo que permite una planificación operativa y estratégica basada en datos.',
             'project.cta': 'Haz clic en la imagen para ver el dashboard interactivo.',
+            'project.cta.crm': 'Haz clic para explorar el CRM.',
+            'project.rapidash.title': 'RapiDash CRM – Plataforma de Distribución Farmacéutica', 'project.rapidash.description': 'CRM full-stack desarrollado para RapiDash S.R.L., una empresa ficticia de distribución farmacéutica de última milla en Santa Cruz de la Sierra, Bolivia. La plataforma gestiona pedidos, clientes, rutas de entrega y repartidores por zona, con control de acceso por roles (admin, supervisor de zona, repartidor, cliente) y seguridad a nivel de fila (RLS) en cada tabla. Desplegado en producción con CI/CD automatizado desde GitHub.',
             'section.testimonials': 'Testimonios', 'testimonial.leonardo.text': 'Excelente servicio y flexible a hacer los ajustes que sean necesarios. Recomendado.', 'testimonial.leonardo.author': 'Leonardo',
             'section.experience': 'Mi Trayectoria Profesional',
             'experience.company': 'Entidad Ejecutora de Conversión a Gas Natural Vehicular',
@@ -541,7 +578,7 @@
             'experience.role9.title': 'Profesional de Planificación', 'experience.role9.date': 'Dic 2015', 'experience.role9.resp1': 'Automaticé la generación de certificaciones presupuestarias mediante macros en VBA, reduciendo errores y mejorando los tiempos de respuesta.',
             'experience.role10.title': 'Consultor - Unidad Operativa', 'experience.role10.date': 'Sep 2015 - Nov 2015', 'experience.role10.resp1': 'Analicé datos operativos con Excel y VBA para identificar cuellos de botella y proponer mejoras en los procesos de conversión.',
             'experience.role11.title': 'Coordinador Regional en Tarija', 'experience.role11.date': 'Mayo 2014 - Jun 2015', 'experience.role11.resp1': 'Coordiné los programas regionales de mantenimiento y recalificación, utilizando Excel y VBA para sistematizar el control operativo y reportar a la sede nacional.',
-            'experience.toggle': 'Mostrar Detalles', 'experience.toggle.hide': 'Ocultar Detalles', 'experience.toggleAll': 'Ocultar Todo', 'experience.toggleAll.expand': 'Expandir Todo',
+            'experience.toggle': 'Mostrar Detalles', 'experience.toggle.hide': 'Ocultar Detalles', 'experience.toggleAll': 'Colapsar', 'experience.toggleAll.expand': 'Expandir Todo',
             'section.contact': 'Contacto', 'contact.button': 'Enviar',
             'footer.text': '© 2025 - Portafolio de BI. Todos los derechos reservados.',
         }
@@ -592,11 +629,12 @@
       });
 
       const toggleExperienceFooter = document.getElementById('toggle-experience-footer');
+      const toggleExperienceFooterBottom = document.getElementById('toggle-experience-footer-bottom');
       const timelineContainer = document.querySelector('.timeline-container');
       const detailButtons = document.querySelectorAll('.toggle-details-btn');
 
-      toggleExperienceFooter.addEventListener('click', () => {
-          const isExpanded = timelineContainer.classList.toggle('expanded');
+      const setExperienceExpanded = (isExpanded) => {
+          timelineContainer.classList.toggle('expanded', isExpanded);
           toggleExperienceFooter.classList.toggle('expanded', isExpanded);
           const textSpan = toggleExperienceFooter.querySelector('span:first-of-type');
           const arrowIcon = toggleExperienceFooter.querySelector('.arrow-icon');
@@ -613,6 +651,14 @@
                   if (btn) btn.textContent = translations[currentLang]['experience.toggle'];
               });
           }
+      };
+
+      toggleExperienceFooter.addEventListener('click', () => {
+          setExperienceExpanded(!timelineContainer.classList.contains('expanded'));
+      });
+
+      toggleExperienceFooterBottom.addEventListener('click', () => {
+          setExperienceExpanded(false);
       });
 
       detailButtons.forEach(button => {
@@ -644,13 +690,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
