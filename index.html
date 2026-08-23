@@ -57,9 +57,11 @@
     .social-icon img { width: 40px; height: 40px; object-fit: contain; }
     .social-icon:hover { transform: scale(1.1); opacity: 0.9; }
     .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, var(--clr-cold-accent), var(--clr-warm-accent)); color: var(--clr-bg); clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); padding: 60px 20px 0; }
-    .hero-content .name { font-family: 'Oswald', sans-serif; font-size: 4rem; margin-bottom: 5px; line-height: 1.1; animation: fadeIn 1s ease-in; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .hero-content .name { font-family: 'Oswald', sans-serif; font-size: 4rem; margin-bottom: 0; line-height: 1.1; animation: fadeIn 1s ease-in; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .hero-name-block { }
+    .hero-subtitle-block { margin-top: 25px; }
     .hero-content .name img { height: 70px; width: auto; }
-    .hero-content .title { font-family: 'Oswald', sans-serif; font-size: 3rem; margin-bottom: 15px; line-height: 1.1; color: #fff; animation: fadeIn 1.5s ease-in; }
+    .hero-content .title { font-family: 'Oswald', sans-serif; font-size: 3rem; margin-bottom: 15px; line-height: 0.9; color: #fff; animation: fadeIn 1.5s ease-in; }
     .hero-content p { font-size: 1.2rem; margin-bottom: 30px; animation: fadeIn 2s ease-in; }
     .btn { display: inline-block; padding: 10px 20px; background: var(--clr-highlight); color: var(--clr-bg); text-decoration: none; border-radius: 5px; font-weight: 500; transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); background: var(--clr-warm-accent); }
@@ -231,6 +233,11 @@
     .skill-item { display: flex; flex-direction: column; align-items: center; min-width: 150px; }
     .skill-item img { max-height: 90px; width: auto; object-fit: contain; margin-bottom: 10px; }
     .skill-item span { font-family: 'Oswald', sans-serif; font-size: 1rem; line-height: 1.2; color: var(--clr-text); }
+    .category-title { font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--clr-cold-accent); text-align: center; text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 15px 0; }
+    .skill-subtitle { display: block; font-family: 'Poppins', sans-serif; font-size: 0.7rem; font-weight: 500; color: var(--clr-cold-accent); margin-top: 2px; }
+    .skill-category { background: var(--clr-bg); border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--clr-cold-accent); padding: 25px 30px; margin-bottom: 20px; transition: transform 0.3s ease; }
+    .skill-category:hover { transform: translateX(5px); }
+    .hero-connector { font-size: 1.8rem; line-height: 0.9; opacity: 0.85; }
     .projects-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
     .project-view-note { text-align: center; margin-top: -20px; margin-bottom: 40px; font-size: 0.9rem; font-style: italic; color: var(--clr-text); }
     .project-card { display: flex; align-items: stretch; gap: 20px; background: var(--clr-bg); padding: 20px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -284,6 +291,7 @@
     @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     
     @media (max-width: 768px) {
+      .hero { clip-path: none; }
       .hero-content .name { font-size: 3rem; flex-direction: column; gap: 5px; }
       .hero-content .name img { height: 50px; }
       .hero-content .title { font-size: 2rem; }
@@ -358,12 +366,16 @@
   <main>
     <section id="home" class="hero">
       <div class="hero-content">
-        <h1 class="name">
-          <span>Weimar</span>
-          <img src="assets/images/blanco.png" alt="Logo Weimar Miranda" onerror="this.onerror=null;this.src='https://placehold.co/70x70/FFFFFF/000000?text=Logo';">
-          <span>Miranda</span>
-        </h1>
-        <h2 class="title" data-translate="hero.title"></h2>
+        <div class="hero-name-block">
+          <h1 class="name">
+            <span>Weimar</span>
+            <img src="assets/images/blanco.png" alt="Logo Weimar Miranda" onerror="this.onerror=null;this.src='https://placehold.co/70x70/FFFFFF/000000?text=Logo';">
+            <span>Miranda</span>
+          </h1>
+        </div>
+        <div class="hero-subtitle-block">
+          <h2 class="title" data-translate="hero.title"></h2>
+        </div>
         <p data-translate="hero.description"></p>
         <a href="#contact" class="btn" data-translate="hero.button"></a>
         </div>
@@ -383,34 +395,64 @@
 
     <section id="skills" class="skills">
       <h2 data-translate="section.skills"></h2>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <img src="assets/images/pbilogo.png" alt="Power BI logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=PBI';">
-          <span>Power BI</span>
+      <!-- Categoría 1: Data Analytics -->
+      <div class="skill-category">
+        <h3 class="category-title" data-translate="skills.cat1"></h3>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <img src="assets/images/logomysql.png" alt="SQL logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=SQL';">
+            <span>SQL</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/images/python.png" alt="Python logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=Py';">
+            <span>Python</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/images/excelicon.png" alt="Excel logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=XLS';">
+            <span>Excel</span>
+          </div>
         </div>
-        <div class="skill-item">
-          <img src="assets/images/claudecode.png" alt="Claude Code logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=Claude';">
-          <span>Claude Code</span>
+      </div>
+
+      <!-- Categoría 2: Business Intelligence -->
+      <div class="skill-category">
+        <h3 class="category-title" data-translate="skills.cat2"></h3>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <img src="assets/images/pbilogo.png" alt="Power BI logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=PBI';">
+            <span>Power BI</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/images/DAX.png" alt="DAX logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/2A9D8F/FFFFFF?text=DAX';">
+            <span>DAX</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/images/PQ.png" alt="Power Query logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/2A9D8F/FFFFFF?text=PQ';">
+            <span>Power Query</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/images/looker.png" alt="Looker Studio logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=LS';">
+            <span>Looker Studio</span>
+          </div>
         </div>
-        <div class="skill-item">
-          <img src="assets/images/excelicon.png" alt="Excel Advanced logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=XLS';">
-          <span>Advanced Excel</span>
-        </div>
-        <div class="skill-item">
-          <img src="assets/images/n8n.png" alt="n8n logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=n8n';">
-          <span>n8n</span>
-        </div>
-        <div class="skill-item">
-          <img src="assets/images/logomysql.png" alt="MySQL logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=SQL';">
-          <span>SQL</span>
-        </div>
-        <div class="skill-item">
-          <img src="assets/images/looker.png" alt="Looker Studio logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=LS';">
-          <span>Looker Studio</span>
-        </div>
-        <div class="skill-item">
-          <img src="assets/images/python.png" alt="Python logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=Py';">
-          <span>Python</span>
+      </div>
+
+      <!-- Categoría 3: Automation & AI -->
+      <div class="skill-category">
+        <h3 class="category-title" data-translate="skills.cat3"></h3>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <img src="assets/images/IA.png" alt="AI Automation logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/E9C46A/264653?text=AI';">
+            <span>AI Automation</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/images/claudecode.png" alt="Claude Code logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=Claude';">
+            <span>Claude Code</span>
+          </div>
+          <div class="skill-item">
+            <img src="assets/images/n8n.png" alt="n8n logo" onerror="this.onerror=null;this.src='https://placehold.co/90x90/FFFFFF/000000?text=n8n';">
+            <span>n8n</span>
+          </div>
         </div>
       </div>
     </section>
@@ -465,6 +507,7 @@
     <section id="education" class="education">
       <h2 data-translate="section.education"></h2>
       <table class="education-table">
+        <!-- 1. MBI Master en Business Intelligence -->
         <tr>
           <td class="logo-cell">
             <img src="assets/images/UB.png" alt="UB Logo" class="education-logo" onerror="this.onerror=null;this.src='https://placehold.co/50x50/FFFFFF/000000?text=UB';">
@@ -477,6 +520,20 @@
           </td>
         </tr>
 
+        <!-- 2. Ingeniería Industrial -->
+        <tr>
+          <td class="logo-cell">
+            <img src="assets/images/CATO.png" alt="UCB Logo" class="education-logo" onerror="this.onerror=null;this.src='https://placehold.co/50x50/FFFFFF/000000?text=UCB';">
+          </td>
+          <td class="info-cell">
+            <div class="education-info">
+              <h3 data-translate="edu.ucb.title"></h3>
+              <p class="institution" data-translate="edu.ucb.inst"></p>
+            </div>
+          </td>
+        </tr>
+
+        <!-- 3. Especialidad en Simulación de Procesos -->
         <tr>
           <td class="logo-cell">
             <div class="logo-wrapper">
@@ -492,18 +549,20 @@
           </td>
         </tr>
 
+        <!-- 4. Diplomado en Docencia Universitaria con IA (nuevo) -->
         <tr>
           <td class="logo-cell">
             <img src="assets/images/CATO.png" alt="UCB Logo" class="education-logo" onerror="this.onerror=null;this.src='https://placehold.co/50x50/FFFFFF/000000?text=UCB';">
           </td>
           <td class="info-cell">
             <div class="education-info">
-              <h3 data-translate="edu.ucb.title"></h3>
-              <p class="institution" data-translate="edu.ucb.inst"></p>
+              <h3 data-translate="edu.diplomado.title"></h3>
+              <p class="institution" data-translate="edu.diplomado.inst"></p>
             </div>
           </td>
         </tr>
 
+        <!-- 5. Kaplan -->
         <tr>
           <td class="logo-cell">
             <img src="assets/images/Kaplan.png" alt="Kaplan Logo" class="education-logo" onerror="this.onerror=null;this.src='https://placehold.co/50x50/FFFFFF/000000?text=Kaplan';">
@@ -515,7 +574,6 @@
               <ul class="edu-details">
                 <li class="desktop-only-content" data-translate="edu.kaplan.det1"></li>
                 <li class="mobile-only-content" data-translate="edu.kaplan.det1.mobile"></li>
-                
                 <li data-translate="edu.kaplan.det2"></li>
               </ul>
             </div>
@@ -719,9 +777,10 @@
       const translations = {
         en: {
             'nav.home': 'Home', 'nav.about': 'About Me', 'nav.skills': 'Skills', 'nav.projects': 'Projects', 'nav.education': 'Education', 'nav.testimonials': 'Testimonials', 'nav.experience': 'Experience', 'nav.contact': 'Contact',
-            'hero.title': 'The Data Analyst', 'hero.description': 'I transform data into strategic decisions with innovative solutions.', 'hero.button': 'Contact Me',
-            'section.about': 'About Me', 'about.text': 'I’m Weimar Miranda, an Industrial Engineer with a Master’s in Business Intelligence (University of Barcelona, 2022) and over 9 years of experience in data analysis, planning, and oversight in Bolivia’s energy sector. I’ve designed models to measure the profitability and performance of investment portfolios, along with reporting systems and executive dashboards using tools like Power BI. I also complement this analysis by building my own solutions —automations, web applications, and databases— to turn findings into functional systems. My approach is fully transferable across industries, and my goal is to identify each organization’s critical pain points and turn them into solutions with measurable impact. I’m also fluent in English at a C1 level (Kaplan, New York, 2024).',
+            'hero.title': 'Data Analyst | BI<br><span class="hero-connector">&amp;</span><br>AI Automation', 'hero.description': 'I transform data into strategic decisions with innovative solutions.', 'hero.button': 'Contact Me',
+            'section.about': 'About Me', 'about.text': 'Industrial Engineer and Data Analyst with 10+ years of professional experience, specialized in Business Intelligence, data analysis and process improvement.<br><br>I use Power BI, SQL, Python and AI-powered automation to transform complex data into actionable insights, automate repetitive processes and improve decision-making.<br><br>My experience combines business understanding, data analytics and process optimization, allowing me to work not only with data, but also understand the business problems behind it.<br><br>Currently open to remote opportunities in Data Analytics, Business Intelligence and Automation.',
             'section.skills': 'Skills',
+            'skills.cat1': 'Data Analytics', 'skills.cat2': 'Business Intelligence', 'skills.cat3': 'Automation & AI',
             'section.projects': 'Projects',
             'section.education': 'Education',
             'edu.kaplan.title': 'Intensive English Program (Advanced Level C1)',
@@ -735,6 +794,7 @@
             'edu.upv.inst': 'Bolivian Catholic University “San Pablo” | Polytechnic University of Valencia',
             'edu.ucb.title': 'Industrial Engineering',
             'edu.ucb.inst': 'Bolivian Catholic University “San Pablo”',
+            'edu.diplomado.title': 'Diploma in University Teaching by Competencies with Artificial Intelligence', 'edu.diplomado.inst': 'Bolivian Catholic University “San Pablo”',
             'section.projects.note': 'For the best experience, it is recommended to view the dashboards on a computer or on a mobile device in landscape orientation.',
             'project.inversion.title': 'GNV Programs Analysis in Bolivia', 'project.inversion.description': 'Comprehensive dashboard developed in Power BI for monitoring and controlling the three Natural Gas Vehicle investment programs in Bolivia: Conversion, Maintenance, and Requalification. The tool centralizes and visualizes key KPIs such as goal progress vs. execution and performance by sector. It allows for detailed geographical analysis by department and workshop, facilitating trend identification and optimizing resource allocation nationwide.',
             'project.seattle.title': 'Seattle 911 Fire Department Incident Report', 'project.seattle.description': 'This Power BI dashboard analyzes over 2 million Seattle 911 fire emergency calls, uncovering trends in frequency, timing, and geographic distribution. Featuring performance comparisons, Azure Maps for district-level insights, and a Python-integrated SARIMA model for forecasting, it empowers data-driven operational and strategic planning.',
@@ -761,9 +821,10 @@
         },
         es: {
             'nav.home': 'Inicio', 'nav.about': 'Sobre Mí', 'nav.skills': 'Habilidades', 'nav.projects': 'Proyectos', 'nav.education': 'Educación', 'nav.testimonials': 'Testimonios', 'nav.experience': 'Experiencia', 'nav.contact': 'Contacto',
-            'hero.title': 'El Analista', 'hero.description': 'Transformo datos en decisiones estratégicas con soluciones innovadoras.', 'hero.button': 'Contáctame',
-            'section.about': 'Sobre Mí', 'about.text': 'Soy Weimar Miranda, Ingeniero Industrial con Máster en Business Intelligence (Universidad de Barcelona, 2022) y más de 9 años de experiencia en análisis de datos, planificación y fiscalización en el sector energético boliviano. He diseñado modelos para medir rentabilidad y desempeño de carteras de inversión, además de sistemas de reporting y dashboards ejecutivos con herramientas como Power BI. También complemento el análisis con desarrollo de soluciones propias —automatizaciones, aplicaciones web y bases de datos— para llevar los hallazgos a sistemas funcionales. Mi enfoque es completamente transferible a cualquier industria, y mi objetivo es identificar los puntos críticos de cada organización y convertirlos en soluciones con impacto medible. Cuento además con nivel C1 de inglés (Kaplan, Nueva York, 2024).',
+            'hero.title': 'Analista de Datos | BI<br><span class="hero-connector">y</span><br>Automatización con IA', 'hero.description': 'Transformo datos en decisiones estratégicas con soluciones innovadoras.', 'hero.button': 'Contáctame',
+            'section.about': 'Sobre Mí', 'about.text': 'Ingeniero Industrial y Analista de Datos con más de 10 años de experiencia profesional, especializado en Business Intelligence, análisis de datos y mejora de procesos.<br><br>Utilizo Power BI, SQL, Python y automatización con IA para transformar datos complejos en información accionable, automatizar procesos repetitivos y mejorar la toma de decisiones.<br><br>Mi experiencia combina el entendimiento del negocio, el análisis de datos y la optimización de procesos, lo que me permite no solo trabajar con datos, sino también comprender los problemas de negocio detrás de ellos.<br><br>Actualmente en búsqueda de oportunidades remotas en Data Analytics, Business Intelligence y Automatización.',
             'section.skills': 'Habilidades',
+            'skills.cat1': 'Análisis de Datos', 'skills.cat2': 'Business Intelligence', 'skills.cat3': 'Automatización e IA',
             'section.projects': 'Proyectos',
             'section.education': 'Formación Académica',
             'edu.kaplan.title': 'Programa Intensivo de Inglés (Nivel Avanzado C1)',
@@ -777,6 +838,7 @@
             'edu.upv.inst': 'Universidad Católica Boliviana “San Pablo” | Universidad Politécnica de Valencia',
             'edu.ucb.title': 'Ingeniería Industrial',
             'edu.ucb.inst': 'Universidad Católica Boliviana “San Pablo”',
+            'edu.diplomado.title': 'Diplomado en Docencia Universitaria por Competencias con Inteligencia Artificial', 'edu.diplomado.inst': 'Universidad Católica Boliviana “San Pablo”',
             'section.projects.note': 'Para una mejor experiencia, se recomienda visualizar los dashboards en una computadora o en un dispositivo móvil en orientación horizontal.',
             'project.inversion.title': 'Análisis de Programas de GNV en Bolivia', 'project.inversion.description': 'Dashboard integral desarrollado en Power BI para el seguimiento y control de los tres programas de inversión de Gas Natural Vehicular en Bolivia: Conversión, Mantenimiento y Recalificación. La herramienta centraliza y visualiza KPIs clave como el avance de metas vs. ejecución y rendimiento por sector. Permite un análisis geográfico detallado por departamento y taller, facilitando la identificación de tendencias y optimizando la asignación de recursos a nivel nacional.',
             'project.seattle.title': 'Informe de Incidentes del Departamento de Bomberos 911 de Seattle', 'project.seattle.description': 'Este panel de Power BI analiza más de 2 millones de llamadas de emergencia 911 de bomberos en Seattle, identificando tendencias en frecuencia, horarios y distribución geográfica. Incluye comparaciones de rendimiento, Azure Maps para información a nivel de distrito y un modelo SARIMA integrado en Python para pronósticos, lo que permite una planificación operativa y estratégica basada en datos.',
@@ -803,7 +865,7 @@
         }
       };
 
-      let currentLang = localStorage.getItem('lang') || 'es';
+      let currentLang = localStorage.getItem('lang') || 'en';
       const langButton = document.querySelector('.lang-btn');
 
       const applyTranslations = () => {
@@ -812,7 +874,7 @@
             const key = el.getAttribute('data-translate');
             const translation = translations[currentLang]?.[key];
             if (translation !== undefined) {
-                if (key === 'privacy.text') {
+                if (key === 'privacy.text' || key === 'about.text' || key === 'hero.title') {
                     el.innerHTML = translation;
                 } else {
                     el.textContent = translation;
