@@ -249,6 +249,8 @@
     .project-tools { margin-bottom: 10px; }
     .tool-badge { display: inline-block; background: var(--clr-cold-accent); color: #fff; font-family: 'Oswald', sans-serif; font-size: 0.8rem; padding: 3px 8px; border-radius: 4px; margin-right: 5px; }
     .project-cta { font-size: 0.8rem; font-style: italic; color: var(--clr-cold-accent); margin-top: auto; padding-top: 10px; font-weight: 500; text-align: right; }
+    .project-cta a { color: var(--clr-cold-accent); text-decoration: none; margin-left: 12px; }
+    .project-cta a:hover { text-decoration: underline; }
     .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
     .testimonial-card { background: var(--clr-bg); padding: 20px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
     .testimonial-card p { font-style: italic; margin-bottom: 15px; }
@@ -461,6 +463,26 @@
       <h2 data-translate="section.projects"></h2>
       <p class="project-view-note" data-translate="section.projects.note"></p>
       <div class="projects-grid">
+        <div class="project-card">
+          <a href="https://drive.google.com/file/d/1dqC7arxdDnPwjXtHXngCuwPsQyNbZeXI/view" target="_blank" rel="noopener noreferrer" class="project-link">
+            <img src="assets/images/dq-pipeline.png" alt="Data Quality Pipeline n8n workflow" class="project-gif" loading="lazy">
+          </a>
+          <div class="project-content">
+            <div class="project-tools">
+              <span class="tool-badge">BigQuery</span>
+              <span class="tool-badge">n8n</span>
+              <span class="tool-badge">Gmail API</span>
+              <span class="tool-badge">SQL</span>
+              <span class="tool-badge">Claude Code</span>
+            </div>
+            <h3 data-translate="project.dq.title"></h3>
+            <p data-translate="project.dq.description"></p>
+            <p class="project-cta">
+              <a href="https://drive.google.com/file/d/1dqC7arxdDnPwjXtHXngCuwPsQyNbZeXI/view" target="_blank" rel="noopener noreferrer">&#9654; <span data-translate="project.cta.demo"></span></a>
+              <a href="https://github.com/WeimarMS/data-quality-pipeline-thelook" target="_blank" rel="noopener noreferrer"><span data-translate="project.cta.repo"></span></a>
+            </p>
+          </div>
+        </div>
         <div class="project-card">
           <a href="https://rapidash-crm.netlify.app" target="_blank" rel="noopener noreferrer" class="project-link">
             <img src="assets/images/rapidash.gif" alt="RapiDash CRM Demo" class="project-gif" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2A9D8F/FFFFFF?text=RapiDash';">
@@ -801,6 +823,8 @@
             'project.cta': 'Click on the image to view the interactive dashboard.',
             'project.cta.crm': 'Click to explore the CRM.',
             'project.rapidash.title': 'RapiDash CRM – Pharma Distribution Platform', 'project.rapidash.description': 'Full-stack CRM built for RapiDash S.R.L., a fictional last-mile pharmaceutical distribution company in Santa Cruz de la Sierra, Bolivia. The platform manages orders, clients, delivery routes, and drivers across multiple city zones, with role-based access control (admin, zone supervisor, driver, client) and row-level security enforced on every table. Deployed to production with automated CI/CD from GitHub.',
+            'project.dq.title': 'Data Quality Pipeline – thelook_ecommerce', 'project.dq.description': 'Data quality review that runs seven SQL checks in BigQuery on the public thelook_ecommerce dataset, detecting broken relationships, duplicates, impossible dates and missing values. Orchestrated with n8n and designed to run on a daily schedule, it sends an alert email through the Gmail API whenever a check fails.',
+            'project.cta.demo': 'Watch demo', 'project.cta.repo': 'View code on GitHub',
             'section.testimonials': 'Testimonials', 'testimonial.leonardo.text': 'Excellent service and flexible to make the necessary adjustments. Recommended.', 'testimonial.leonardo.author': 'Leonardo',
             'section.experience': 'My Professional Journey',
             'experience.company': 'Executive Entity for Natural Gas Vehicle Conversion',
@@ -845,6 +869,8 @@
             'project.cta': 'Haz clic en la imagen para ver el dashboard interactivo.',
             'project.cta.crm': 'Haz clic para explorar el CRM.',
             'project.rapidash.title': 'RapiDash CRM – Plataforma de Distribución Farmacéutica', 'project.rapidash.description': 'CRM full-stack desarrollado para RapiDash S.R.L., una empresa ficticia de distribución farmacéutica de última milla en Santa Cruz de la Sierra, Bolivia. La plataforma gestiona pedidos, clientes, rutas de entrega y repartidores por zona, con control de acceso por roles (admin, supervisor de zona, repartidor, cliente) y seguridad a nivel de fila (RLS) en cada tabla. Desplegado en producción con CI/CD automatizado desde GitHub.',
+            'project.dq.title': 'Pipeline de Calidad de Datos – thelook_ecommerce', 'project.dq.description': 'Revisión de calidad de datos que ejecuta siete validaciones SQL en BigQuery sobre el dataset público thelook_ecommerce, detectando relaciones rotas, duplicados, fechas imposibles y valores faltantes. Orquestada con n8n y diseñada para ejecutarse a diario, envía un correo de alerta mediante la API de Gmail cuando alguna validación falla.',
+            'project.cta.demo': 'Ver demo', 'project.cta.repo': 'Ver código en GitHub',
             'section.testimonials': 'Testimonials', 'testimonial.leonardo.text': 'Excelente servicio y flexible a hacer los ajustes que sean necesarios. Recomendado.', 'testimonial.leonardo.author': 'Leonardo',
             'section.experience': 'Mi Trayectoria Profesional',
             'experience.company': 'Entidad Ejecutora de Conversión a Gas Natural Vehicular',
